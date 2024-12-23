@@ -1,0 +1,292 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #ffffff;
+    color: #333;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .container {
+    margin: 30px auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, color 0.3s;
+    width: 100%;
+  }
+  
+  h1 {
+    text-align: center;
+    color: #333;
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+  
+  /* Style untuk toggle switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 34px;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+  }
+  
+  input:checked + .slider {
+    background-color: #33ff33;
+  }
+  
+  input:checked + .slider:before {
+    transform: translateX(26px);
+  }
+  
+  /* Tema Gelap */
+  body.dark-mode {
+    background-color: #121212;
+    color: white;
+  }
+  
+  .theme-toggle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 20px;
+  }
+  
+  .sensor-data {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    color: #ff6fc2; /* Pink color for headings */
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+  }
+  
+  canvas {
+    width: 100%;
+    height: 300px;
+    border-radius: 8px;
+  }
+  
+  .values {
+    margin-top: 30px;
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+    align-items: center;
+  }
+  
+  .value-box {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .value-box h4 {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .value-box p {
+    font-size: 1.1rem;
+    color: #555;
+  }
+  
+  .value-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Light Theme */
+  .light-mode {
+    background-color: #ffffff;
+    color: #333;
+  }
+  
+  .light-mode .container {
+    background-color: #fff5fc; /* Light pinkish background for container */
+  }
+  
+  .light-mode h1 {
+    color: #333;
+  }
+  
+  .light-mode .theme-toggle label {
+    color: #333;
+  }
+  
+  .light-mode .sensor-data,
+  .light-mode .value-box {
+    background-color: #f0f8ff; /* Light blue background */
+    color: #333;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .light-mode .value-box h4,
+  .light-mode .value-box p {
+    color: #333;
+  }
+  
+  .light-mode .sensor-data h2 {
+    color: #ff6fc2; /* Pink color for headings */
+  }
+  
+  .light-mode .value-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Dark Theme */
+  .dark-mode {
+    background-color: #000000; /* Black background */
+    color: #33ff33; /* Green text */
+  }
+  
+  .dark-mode .container {
+    background-color: #1a1a1a; /* Dark background for container */
+  }
+  
+  .dark-mode h1 {
+    color: #33ff33;
+  }
+  
+  .dark-mode .theme-toggle label {
+    color: #33ff33;
+  }
+  
+  .dark-mode .sensor-data,
+  .dark-mode .value-box {
+    background-color: #333333; /* Darker gray background for boxes */
+    color: #33ff33; /* Green text */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+  }
+  
+  .dark-mode .value-box h4,
+  .dark-mode .value-box p {
+    color: #33ff33;
+  }
+  
+  .dark-mode .sensor-data h2 {
+    color: #33ff33; /* Green for headings */
+  }
+  
+  .dark-mode .value-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  }
+  
+  @media (max-width: 768px) {
+    .container {
+      padding: 20px;
+    }
+  
+    h1 {
+      font-size: 1.5rem;
+    }
+  
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+/* Container styling */
+.led-control {
+    text-align: center;
+    margin-top: 20px;
+    font-family: Arial, sans-serif;
+}
+
+/* Button styling */
+.led-control button {
+    background-color: #f0f0f0;
+    border: 2px solid #ccc;
+    color: #333;
+    padding: 10px 20px;
+    font-size: 12px;
+    border-radius: 30px;
+    cursor: pointer;
+    margin: 7px;
+    transition: all 0.5s ease;
+}
+
+/* Button hover effect */
+.led-control button:hover {
+    background-color: #e0e0e0;
+    border-color: #999;
+}
+
+/* Button active effect */
+.led-control button:active {
+    transform: scale(0.95);
+}
+
+/* Specific styles for ON button */
+#btnOn {
+    background-color: #4caf50;
+    color: white;
+    border: 2px solid #3e8e41;
+}
+
+#btnOn:hover {
+    background-color: #45a049;
+}
+
+/* Specific styles for OFF button */
+#btnOff {
+    background-color: #f44336;
+    color: white;
+    border: 2px solid #d32f2f;
+}
+
+#btnOff:hover {
+    background-color: #e53935;
+}

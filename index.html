@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Campus IoT Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mqtt/dist/mqtt.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Smart Campus IoT Dashboard</h1>
+    
+    <div class="container">
+        <div class="theme-toggle">
+            <label class="switch">
+                <input type="checkbox" id="themeSwitch">
+                <span class="slider"></span>
+            </label>
+            <span id="themeLabel">Light Mode</span>
+        </div>
+    
+        <div class="led-control">
+            <h3>LED Control</h3>
+            <button id="btnOn">Turn ON</button>
+            <button id="btnOff">Turn OFF</button>
+        </div>
+    </div>
+    
+    <div class="values">
+        <h3>Current Values</h3>
+        <div class="value-box" id="temperature">
+          <h4>Temperature</h4>
+          <p>-- °C</p>
+        </div>
+        <div class="value-box" id="humidity">
+          <h4>Humidity</h4>
+          <p>-- %</p>
+        </div>
+        <div class="value-box" id="ldr">
+          <h4>LDR Value</h4>
+          <p>--</p>
+        </div>
+      </div>
+
+    <div class="grid">
+      <div class="sensor-data">
+        <h2>Temperature and Humidity</h2>
+        <canvas id="tempHumidityChart"></canvas>
+      </div>
+
+      <div class="sensor-data">
+        <h2>LDR Value</h2>
+        <canvas id="ldrChart"></canvas>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
